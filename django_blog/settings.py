@@ -21,6 +21,10 @@ DATABASES = {
     }
 }
 
+# CONFIGURATION SETTINGS TO MAKE SIMPLE BLOG WORK
+
+RECIPIENT_EMAIL_ADDRESS = 'example_email@example.com'
+
 # Hosts/domain names that are valid for this site; required if DEBUG is False
 # See https://docs.djangoproject.com/en/1.5/ref/settings/#allowed-hosts
 ALLOWED_HOSTS = []
@@ -61,7 +65,7 @@ MEDIA_URL = ''
 # Don't put anything in this directory yourself; store your static files
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/var/www/example.com/static/"
-STATIC_ROOT = '/Users/rhurst/django_blog/django_blog'
+#STATIC_ROOT = '/Users/rhurst/django_blog/django_blog'
 
 # URL prefix for static files.
 # Example: "http://example.com/static/", "http://static.example.com/"
@@ -69,6 +73,7 @@ STATIC_URL = '/static/'
 
 # Additional locations of static files
 STATICFILES_DIRS = (
+	'/Users/rhurst/django_blog/django_blog/static',
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
@@ -111,7 +116,7 @@ TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-    '/templates/',
+    '/Users/rhurst/django_blog/django_blog/templates',
 )
 
 INSTALLED_APPS = (
@@ -126,8 +131,8 @@ INSTALLED_APPS = (
     # Uncomment the next line to enable admin documentation:
     'django.contrib.admindocs',
     'articles',
-    #'contact',
-    #'landing_page',
+    'contact',
+    'landing_page',
     
 )
 

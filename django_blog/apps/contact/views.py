@@ -13,11 +13,11 @@ from django.contrib.contenttypes import generic
 from django.db import IntegrityError
 from urlparse import urlparse
 from datetime import datetime
-import simplejson
+import json as simplejson
 import string
-from landing_page_aef.forms import EmailCaptureForm
+from landing_page.forms import EmailCaptureForm
 
-from articles_aef.models import ArticlePageModel, ArticlePageViewCount
+from articles.models import ArticlePageModel, ArticlePageViewCount
 
 
 from forms import ContactForm
@@ -31,7 +31,7 @@ def contact(request):
 			subject = form.cleaned_data['subject']
 			sender = form.cleaned_data['sender']
 			message = form.cleaned_data['message'] + "     THIS MESSAGE IS FROM THE FOLLOWING EMAIL ADDRESS: "+ str(sender)
-			recipients = ['rhurst@africanequity.org', 'tainge@africanequity.org', 'syoung@africanequity.org', 'rmichael@africanequity.org']
+			recipients = [settings.RECIPIENT_EMAIL_ADDRESS]
 			from django.core.mail import send_mail
 			send_mail(subject, message, sender, recipients)		
 		context = { 'contact': form, 'ecForm': ecForm,'sent': True}

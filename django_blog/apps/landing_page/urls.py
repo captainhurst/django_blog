@@ -1,7 +1,7 @@
 from django.conf.urls import patterns, include, url
-from landing_page_aef.views import *
+from landing_page.views import *
 
-urlpatterns = patterns('landing_page_aef.views',
+urlpatterns = patterns('landing_page.views',
 	url(r'^$', landing),
 	url(r'^ajax/email_capture$', email_capture),
 

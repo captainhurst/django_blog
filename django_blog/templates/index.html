@@ -3,20 +3,20 @@
 		{% block head %}
 			<meta charset="utf-8">
 		    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-		    <meta name="description" content="{{meta.metaDescription}}">
+		    <meta name="description" content="{{meta.meta_description}}">
 		    <meta name="author" content="">
-			<meta name="keywords" content="{{meta.metaKeywords}}">
+			<meta name="keywords" content="{{meta.meta_keywords}}">
 
-		    <title>{{title.titleTag}}</title>
+		    <title>{{title.title_tag}}</title>
 
 			<!--Facebook Meta Tags-->
-			<meta property=”og:title” content=”{{title.titleTag}}”/>
+			<meta property=”og:title” content=”{{title.title_tag}}”/>
 			<meta property=”og:type” content=”listing”/>
 			<meta property=”og:image” content=””/>
 			<meta property=”og:url” content=”{{request.path}}”/>
-			<meta property=”og:description” content=”{{meta.metaDescription}}”/>
+			<meta property=”og:description” content=”{{meta.meta_description}}”/>
 			<meta property=”og:street_address” content=””/>
-			<meta property=”og:locality” content=”Mesa, Arizona”/>
+			<meta property=”og:locality” content=''/>
 			<meta property=”og:email” content=””/>
 			<meta property=”og:phone_number” content=””/>
 			<meta property=”og:website” content=”{{request.path}}”/>
@@ -24,8 +24,8 @@
 			<!--Twitter Meta Tags-->
 			<meta name=”twitter:card” content=”summary”>
 			<meta name=”twitter:url” content=”{{request.path}}”>
-			<meta name=”twitter:title” content=”{{title.titleTag}}”>
-			<meta name=”twitter:description” content=”{{meta.metaDescription}}”>
+			<meta name=”twitter:title” content=”{{title.title_tag}}”>
+			<meta name=”twitter:description” content=”{{meta.meta_description}}”>
 			<meta name=”twitter:image” content=””>
 		{% endblock%}
 
@@ -33,14 +33,14 @@
 				<div id="splashimage">
 					<div class='splash-container'>
 						<p class='splashImage'><img src='{{STATIC_URL}}resources/splash/splash_logo.png'/></p>
-						<h1 class='welcomeSplash'>The African Equity Fund</h1>
+						<h1 class='welcomeSplash'>Generic Website</h1>
 					</div>
 				</div>
 				<div class='infoBand'>
 					<div class='container'>
 						<div class='row'>
 							<div class='col-lg-12 col-md-12 col-sm-12'>
-								<h2 class="infobandHeader" >What is The African Equity Fund?</h2>
+								<h2 class="infobandHeader" >What is A Generic Website?</h2>
 								<p class='infobandText'>AEF Is A Non-Profit Organization Dedicated To Promoting Development Through Technology, Education and Entrepreneurship.</p>
 							</div>
 						</div>
@@ -54,287 +54,8 @@
 						</div>
 					</div>	
 				</div>
-				<div class='container'>
-					<div class='row container'>
-						<div class='col-lg-12 col-md-12 col-sm-12'>
-							<h2 class='get-involved-header'>Make a monthly donation</h2>
-						</div>
-					</div>
-				</div>
-				
-				<div class='container'>
-				<div class='row subscriptionWrapper'>
-					
-					 <div class="col-lg-6 col-md-6 col-sm-12">
-					  <div class="panel">
-					     <div class="panel-heading panel-default"><h3 class="text-center subscriptionTitle">Bronze Donor</h3></div>
-					         <div class="panel-body text-center">
-								<p class='bigAmount'>$10</p>
-								<p class='lead'>Per Month</p>
-							 </div>
-					                       <ul class="list-group list-group-flush text-center">
-												<li class="list-group-item"><i class="icon-ok text-success"></i> AEF T-Shirt</li>
-												<li class="list-group-item"><i class="icon-ok text-success"></i> Thank You Card</li>
-												<li class="list-group-item"><i class="icon-ok text-success"></i> Warm Fuzzies</li>
-											</ul>
-					    <div class="panel-footer">
-							<form class="form-inline" role="form" action="https://checkout.google.com/cws/v2/Donations/528103000230514/checkoutForm" id="BB_BuyButtonForm" method="post" name="BB_BuyButtonForm" target="_top">
-							<input type="hidden" name="shopping-cart.items.item-1.item-name" value="$10 donation to The African Equity Fund."/> 
-							<input type="hidden" name="shopping-cart.items.item-1.item-description" value="$10 recurring donation to The African Equity Fund – recurrence begins next month."/> 
-							<input type="hidden" name="shopping-cart.items.item-1.unit-price.currency" value="USD"/> 
-							<input type="hidden" name="shopping-cart.items.item-1.unit-price" value="0.00"/> 
-							<input type="hidden" name="shopping-cart.items.item-1.quantity" value="1"/> 
-							<input type="hidden" name="shopping-cart.items.item-1.subscription.type" value="google"/> 
-							<input type="hidden" name="shopping-cart.items.item-1.subscription.period" value="MONTHLY"/> 
-							<input type="hidden" name="shopping-cart.items.item-1.subscription.payments.subscription-payment-1.maximum-charge" value="10.00"> 
-							<input type="hidden" name="shopping-cart.items.item-1.subscription.payments.subscription-payment-1.maximum-charge.currency" value="USD"> 
-							<input type="hidden" name="shopping-cart.items.item-1.subscription.recurrent-item.item-name" value="$10 donation to The African Equity Fund."> 
-							<input type="hidden" name="shopping-cart.items.item-1.subscription.recurrent-item.item-description" value="A donation to support AEF's mission to promote development, education and access to technology in Sub-Saharan Africa."> 
-							<input type="hidden" name="shopping-cart.items.item-1.subscription.recurrent-item.quantity" value="1"> 
-							<input type="hidden" name="shopping-cart.items.item-1.subscription.recurrent-item.unit-price" value="10.00"> 
-							<input type="hidden" name="shopping-cart.items.item-1.subscription.recurrent-item.unit-price.currency" value="USD"> 
-							<input type="hidden" name="shopping-cart.items.item-1.subscription.recurrent-item.digital-content.display-disposition" value="OPTIMISTIC"> 
-							<input type="hidden" name="shopping-cart.items.item-1.subscription.recurrent-item.digital-content.email-delivery" value="true"/> 
-							<input type="hidden" name="shopping-cart.items.item-1.digital-content.display-disposition" value="OPTIMISTIC"> 
-							<input type="hidden" name="shopping-cart.items.item-1.digital-content.description" value="The African Equity Fund will send you a charitable donation receipt. Check out our website for more information on our projects, www.africanequity.org."> 
-
-							<input type="hidden" name="shopping-cart.items.item-2.item-name" value="First donation to The African Equity Fund."> 
-							<input type="hidden" name="shopping-cart.items.item-2.item-description" value="First donation to The African Equity Fund"> 
-							<input type="hidden" name="shopping-cart.items.item-2.unit-price" value="10.00"> 
-							<input type="hidden" name="shopping-cart.items.item-2.unit-price.currency" value="USD"> 
-							<input type="hidden" name="shopping-cart.items.item-2.quantity" value="1">
-							<input alt="Donate" src="https://checkout.google.com/buttons/donateNow.gif?merchant_id=528103000230514&amp;w=115&amp;h=50&amp;style=white&amp;variant=text&amp;loc=en_US" type="submit" class='btn btn-custom-twitter btn-lg donateButton' value='Donate!'/>   
-							</form>
-						</div>
-					 </div> 
-				  </div>
-				<!--/Col 3-->
-				<div class="col-lg-6 col-md-6 col-sm-12">
-				  <div class="panel">
-				     <div class="panel-heading panel-default"><h3 class="text-center subscriptionTitle">Silver Donor</h3></div>
-				         <div class="panel-body text-center">
-							<p class='bigAmount'>$20</p>
-							<p class='lead'>Per Month</p>
-						 </div>
-				                       <ul class="list-group list-group-flush text-center">
-											<li class="list-group-item"><i class="icon-ok text-success"></i> All Bronze Donor Swag</li>
-											<li class="list-group-item"><i class="icon-ok text-success"></i> Entry Into Annual Prize Raffle</li>
-											<li class="list-group-item"><i class="icon-ok text-success"></i> Holiday Card From The AEF Team</li>
-									   </ul>
-				    <div class="panel-footer">
-						<form class="form-inline" role="form" action="https://checkout.google.com/cws/v2/Donations/528103000230514/checkoutForm" id="BB_BuyButtonForm" method="post" name="BB_BuyButtonForm" target="_top">
-						<input type="hidden" name="shopping-cart.items.item-1.item-name" value="$20 donation to The African Equity Fund."/> 
-						<input type="hidden" name="shopping-cart.items.item-1.item-description" value="$20 recurring donation to The African Equity Fund – recurrence begins next month."/> 
-						<input type="hidden" name="shopping-cart.items.item-1.unit-price.currency" value="USD"/> 
-						<input type="hidden" name="shopping-cart.items.item-1.unit-price" value="0.00"/> 
-						<input type="hidden" name="shopping-cart.items.item-1.quantity" value="1"/> 
-						<input type="hidden" name="shopping-cart.items.item-1.subscription.type" value="google"/> 
-						<input type="hidden" name="shopping-cart.items.item-1.subscription.period" value="MONTHLY"/> 
-						<input type="hidden" name="shopping-cart.items.item-1.subscription.payments.subscription-payment-1.maximum-charge" value="20.00"> 
-						<input type="hidden" name="shopping-cart.items.item-1.subscription.payments.subscription-payment-1.maximum-charge.currency" value="USD"> 
-						<input type="hidden" name="shopping-cart.items.item-1.subscription.recurrent-item.item-name" value="$20 donation to The African Equity Fund."> 
-						<input type="hidden" name="shopping-cart.items.item-1.subscription.recurrent-item.item-description" value="A donation to support AEF's mission to promote development, education and access to technology in Sub-Saharan Africa."> 
-						<input type="hidden" name="shopping-cart.items.item-1.subscription.recurrent-item.quantity" value="1"> 
-						<input type="hidden" name="shopping-cart.items.item-1.subscription.recurrent-item.unit-price" value="20.00"> 
-						<input type="hidden" name="shopping-cart.items.item-1.subscription.recurrent-item.unit-price.currency" value="USD"> 
-						<input type="hidden" name="shopping-cart.items.item-1.subscription.recurrent-item.digital-content.display-disposition" value="OPTIMISTIC"> 
-						<input type="hidden" name="shopping-cart.items.item-1.subscription.recurrent-item.digital-content.email-delivery" value="true"/> 
-						<input type="hidden" name="shopping-cart.items.item-1.digital-content.display-disposition" value="OPTIMISTIC"> 
-						<input type="hidden" name="shopping-cart.items.item-1.digital-content.description" value="The African Equity Fund will send you a charitable donation receipt. Check out our website for more information on our projects, www.africanequity.org."> 
-
-						<input type="hidden" name="shopping-cart.items.item-2.item-name" value="First donation to The African Equity Fund."> 
-						<input type="hidden" name="shopping-cart.items.item-2.item-description" value="First donation to The African Equity Fund"> 
-						<input type="hidden" name="shopping-cart.items.item-2.unit-price" value="20.00"> 
-						<input type="hidden" name="shopping-cart.items.item-2.unit-price.currency" value="USD"> 
-						<input type="hidden" name="shopping-cart.items.item-2.quantity" value="1">
-						<input alt="Donate" src="https://checkout.google.com/buttons/donateNow.gif?merchant_id=528103000230514&amp;w=115&amp;h=50&amp;style=white&amp;variant=text&amp;loc=en_US" type="submit" class='btn btn-custom-twitter btn-lg donateButton' value='Donate!'/>   
-						</form>
-					</div>
-				 </div> 
-			  </div>
-			<!--/Col 3-->
-			</div>
-			<div class='row'>	
-			<div class="col-lg-6 col-md-6 col-sm-12">
-			  <div class="panel">
-			     <div class="panel-heading panel-default"><h3 class="text-center subscriptionTitle">Gold Donor</h3></div>
-			         <div class="panel-body text-center">
-						<p class='bigAmount'>$50</p>
-						<p class='lead'>Per Month</p>
-					 </div>
-			                       <ul class="list-group list-group-flush text-center">
-										<li class="list-group-item"><i class="icon-ok text-success"></i> All Silver Donor Swag</li>
-										<li class="list-group-item"><i class="icon-ok text-success"></i> Scholarship for 1 Empower Academy Student In Your Name</li>
-										<li class="list-group-item"><i class="icon-ok text-success"></i> Regular Updates From Your Students</li>
-										<li class="list-group-item"><i class="icon-ok text-success"></i> Invitation To Accompany AEF and Engage Now Africa On Annual Donor Trips.</li>
-										
-									</ul>
-			    <div class="panel-footer">
-					<form class="form-inline" role="form" action="https://checkout.google.com/cws/v2/Donations/528103000230514/checkoutForm" id="BB_BuyButtonForm" method="post" name="BB_BuyButtonForm" target="_top">
-					<input type="hidden" name="shopping-cart.items.item-1.item-name" value="$50 donation to The African Equity Fund."/> 
-					<input type="hidden" name="shopping-cart.items.item-1.item-description" value="$50 recurring donation to The African Equity Fund – recurrence begins next month."/> 
-					<input type="hidden" name="shopping-cart.items.item-1.unit-price.currency" value="USD"/> 
-					<input type="hidden" name="shopping-cart.items.item-1.unit-price" value="0.00"/> 
-					<input type="hidden" name="shopping-cart.items.item-1.quantity" value="1"/> 
-					<input type="hidden" name="shopping-cart.items.item-1.subscription.type" value="google"/> 
-					<input type="hidden" name="shopping-cart.items.item-1.subscription.period" value="MONTHLY"/> 
-					<input type="hidden" name="shopping-cart.items.item-1.subscription.payments.subscription-payment-1.maximum-charge" value="50.00"> 
-					<input type="hidden" name="shopping-cart.items.item-1.subscription.payments.subscription-payment-1.maximum-charge.currency" value="USD"> 
-					<input type="hidden" name="shopping-cart.items.item-1.subscription.recurrent-item.item-name" value="$10 donation to The African Equity Fund."> 
-					<input type="hidden" name="shopping-cart.items.item-1.subscription.recurrent-item.item-description" value="A donation to support AEF's mission to promote development, education and access to technology in Sub-Saharan Africa."> 
-					<input type="hidden" name="shopping-cart.items.item-1.subscription.recurrent-item.quantity" value="1"> 
-					<input type="hidden" name="shopping-cart.items.item-1.subscription.recurrent-item.unit-price" value="50.00"> 
-					<input type="hidden" name="shopping-cart.items.item-1.subscription.recurrent-item.unit-price.currency" value="USD"> 
-					<input type="hidden" name="shopping-cart.items.item-1.subscription.recurrent-item.digital-content.display-disposition" value="OPTIMISTIC"> 
-					<input type="hidden" name="shopping-cart.items.item-1.subscription.recurrent-item.digital-content.email-delivery" value="true"/> 
-					<input type="hidden" name="shopping-cart.items.item-1.digital-content.display-disposition" value="OPTIMISTIC"> 
-					<input type="hidden" name="shopping-cart.items.item-1.digital-content.description" value="The African Equity Fund will send you a charitable donation receipt. Check out our website for more information on our projects, www.africanequity.org."> 
-
-					<input type="hidden" name="shopping-cart.items.item-2.item-name" value="First donation to The African Equity Fund."> 
-					<input type="hidden" name="shopping-cart.items.item-2.item-description" value="First donation to The African Equity Fund"> 
-					<input type="hidden" name="shopping-cart.items.item-2.unit-price" value="50.00"> 
-					<input type="hidden" name="shopping-cart.items.item-2.unit-price.currency" value="USD"> 
-					<input type="hidden" name="shopping-cart.items.item-2.quantity" value="1">
-					<input alt="Donate" src="https://checkout.google.com/buttons/donateNow.gif?merchant_id=528103000230514&amp;w=115&amp;h=50&amp;style=white&amp;variant=text&amp;loc=en_US" type="submit" class='btn btn-custom-twitter btn-lg donateButton' value='Donate!'/>   
-					</form>
-				</div>
-			 </div> 
-		  </div>
-		<!--/Col 3-->
 			
-			<div class="col-lg-6 col-md-6 col-sm-12">
-			  <div class="panel">
-			     <div class="panel-heading panel-default"><h3 class="text-center subscriptionTitle">Platinum Donor</h3></div>
-			         <div class="panel-body text-center">
-						<p class='bigAmount'>$100</p>
-						<p class='lead'>Per Month</p>
-					 </div>
-			                       <ul class="list-group list-group-flush text-center">
-										<li class="list-group-item"><i class="icon-ok text-success"></i> All Silver Donor Swag</li>
-										<li class="list-group-item"><i class="icon-ok text-success"></i> Scholarship for 2 Empower Academy Students In Your Name</li>
-										<li class="list-group-item"><i class="icon-ok text-success"></i> Regular Updates From Your Students</li>
-										<li class="list-group-item"><i class="icon-ok text-success"></i> Invitation To Accompany AEF and Engage Now Africa On Annual Donor Trips.</li>
-										
-									</ul>
-			    <div class="panel-footer">
-					<form class="form-inline" role="form" action="https://checkout.google.com/cws/v2/Donations/528103000230514/checkoutForm" id="BB_BuyButtonForm" method="post" name="BB_BuyButtonForm" target="_top">
-					<input type="hidden" name="shopping-cart.items.item-1.item-name" value="$100 donation to The African Equity Fund."/> 
-					<input type="hidden" name="shopping-cart.items.item-1.item-description" value="$100 recurring donation to The African Equity Fund – recurrence begins next month."/> 
-					<input type="hidden" name="shopping-cart.items.item-1.unit-price.currency" value="USD"/> 
-					<input type="hidden" name="shopping-cart.items.item-1.unit-price" value="0.00"/> 
-					<input type="hidden" name="shopping-cart.items.item-1.quantity" value="1"/> 
-					<input type="hidden" name="shopping-cart.items.item-1.subscription.type" value="google"/> 
-					<input type="hidden" name="shopping-cart.items.item-1.subscription.period" value="MONTHLY"/> 
-					<input type="hidden" name="shopping-cart.items.item-1.subscription.payments.subscription-payment-1.maximum-charge" value="100.00"> 
-					<input type="hidden" name="shopping-cart.items.item-1.subscription.payments.subscription-payment-1.maximum-charge.currency" value="USD"> 
-					<input type="hidden" name="shopping-cart.items.item-1.subscription.recurrent-item.item-name" value="$100 donation to The African Equity Fund."> 
-					<input type="hidden" name="shopping-cart.items.item-1.subscription.recurrent-item.item-description" value="A donation to support AEF's mission to promote development, education and access to technology in Sub-Saharan Africa."> 
-					<input type="hidden" name="shopping-cart.items.item-1.subscription.recurrent-item.quantity" value="1"> 
-					<input type="hidden" name="shopping-cart.items.item-1.subscription.recurrent-item.unit-price" value="100.00"> 
-					<input type="hidden" name="shopping-cart.items.item-1.subscription.recurrent-item.unit-price.currency" value="USD"> 
-					<input type="hidden" name="shopping-cart.items.item-1.subscription.recurrent-item.digital-content.display-disposition" value="OPTIMISTIC"> 
-					<input type="hidden" name="shopping-cart.items.item-1.subscription.recurrent-item.digital-content.email-delivery" value="true"/> 
-					<input type="hidden" name="shopping-cart.items.item-1.digital-content.display-disposition" value="OPTIMISTIC"> 
-					<input type="hidden" name="shopping-cart.items.item-1.digital-content.description" value="The African Equity Fund will send you a charitable donation receipt. Check out our website for more information on our projects, www.africanequity.org."> 
 
-					<input type="hidden" name="shopping-cart.items.item-2.item-name" value="First donation to The African Equity Fund."> 
-					<input type="hidden" name="shopping-cart.items.item-2.item-description" value="First donation to The African Equity Fund"> 
-					<input type="hidden" name="shopping-cart.items.item-2.unit-price" value="100.00"> 
-					<input type="hidden" name="shopping-cart.items.item-2.unit-price.currency" value="USD"> 
-					<input type="hidden" name="shopping-cart.items.item-2.quantity" value="1">
-					<input alt="Donate" src="https://checkout.google.com/buttons/donateNow.gif?merchant_id=528103000230514&amp;w=115&amp;h=50&amp;style=white&amp;variant=text&amp;loc=en_US" type="submit" class='btn btn-custom-twitter btn-lg donateButton' value='Donate!'/>   
-					</form>
-				</div>
-			 </div> 
-		  </div>
-		<!--/Col 3-->
-				
-				
-				
-				</div>
-				</div>
-				<div class='container'>
-				<div class='row customDonation'>
-					<div class='col-lg-4 col-md-4 col-sm-4'>
-						<p class='bigOr'>OR</p>
-					</div>
-					<div class='col-lg-8 col-md-8 col-sm-8'>
-						<h2 class='get-involved-header'>Make A One Time Donation</h2>
-						<div class='donate-wrapper'>
-							<script type="text/javascript"> 
-							function validateAmount(amount){
-								if(amount.value.match( /^[0-9]+(\.([0-9]+))?$/)){
-									return true;
-								}else{
-									alert('You must enter a valid donation.');
-									amount.focus();
-									return false;
-								}
-							}
-							</script>
-							<form class="form-inline" role="form" action="https://checkout.google.com/cws/v2/Donations/528103000230514/checkoutForm" id="BB_BuyButtonForm" method="post" name="BB_BuyButtonForm" onSubmit="return validateAmount(this.item_price_1)" target="_top">
-							    <input name="item_name_1" type="hidden" value="Donation to The African Equity Fund"/>
-							    <input name="item_description_1" type="hidden" value="One time donation to The African Equity Fund."/>
-							    <input name="item_quantity_1" type="hidden" value="1"/>
-							    <input name="item_currency_1" type="hidden" value="USD"/>
-							    <input name="item_is_modifiable_1" type="hidden" value="true"/>
-							    <input name="item_min_price_1" type="hidden" value="0.01"/>
-							    <input name="item_max_price_1" type="hidden" value="25000.0"/>
-							    <input name="_charset_" type="hidden" value="utf-8"/>							    
-									<div class="form-group">
-									    <label class="sr-only" for="item_price_1">Donation Amount</label>
-										<div class="input-group">
-											<span class="input-group-addon">$</span>
-											<input id="item_price_1" name="item_price_1"  onfocus="this.style.color='black'; this.value='';" class="form-control input-lg" type="text" value="Enter Amount Here"/>
-										</div>
-									 </div>
-									<input alt="Donate" src="https://checkout.google.com/buttons/donateNow.gif?merchant_id=528103000230514&amp;w=115&amp;h=50&amp;style=white&amp;variant=text&amp;loc=en_US" type="submit" class='btn btn-success btn-lg donateButton' value='Donate!'/>   
-
-										 
-							</form>
-						</div>
-					</div>
-				  </div><!--FIRST CALL TO ACTION-->
-				</div>
-				</div><!--/subscriptionband-->
-			<!--	<div class='donateBar container'>					
-					<div class='col-lg-8 col-md-8 col-sm-8'>
-						<h3 class='get-involved-header'>Donate Custom Amount Here</h3>
-						<div class='donate-wrapper'>
-							<script type="text/javascript"> 
-							function validateAmount(amount){
-								if(amount.value.match( /^[0-9]+(\.([0-9]+))?$/)){
-									return true;
-								}else{
-									alert('You must enter a valid donation.');
-									amount.focus();
-									return false;
-								}
-							}
-							</script>
-							<form class="form-inline" role="form" action="https://checkout.google.com/cws/v2/Donations/528103000230514/checkoutForm" id="BB_BuyButtonForm" method="post" name="BB_BuyButtonForm" onSubmit="return validateAmount(this.item_price_1)" target="_top">
-							    <input name="item_name_1" type="hidden" value="Donation to The African Equity Fund"/>
-							    <input name="item_description_1" type="hidden" value="One time donation to The African Equity Fund."/>
-							    <input name="item_quantity_1" type="hidden" value="1"/>
-							    <input name="item_currency_1" type="hidden" value="USD"/>
-							    <input name="item_is_modifiable_1" type="hidden" value="true"/>
-							    <input name="item_min_price_1" type="hidden" value="0.01"/>
-							    <input name="item_max_price_1" type="hidden" value="25000.0"/>
-							    <input name="_charset_" type="hidden" value="utf-8"/>							    
-									<div class="form-group">
-									    <label class="sr-only" for="item_price_1">Donation Amount</label>
-										<div class="input-group">
-											<span class="input-group-addon">$</span>
-											<input id="item_price_1" name="item_price_1"  onfocus="this.style.color='black'; this.value='';" class="form-control input-lg" type="text" value="Enter Amount Here"/>
-										</div>
-									 </div>
-									<input alt="Donate" src="https://checkout.google.com/buttons/donateNow.gif?merchant_id=528103000230514&amp;w=115&amp;h=50&amp;style=white&amp;variant=text&amp;loc=en_US" type="submit" class='btn btn-success btn-lg donateButton' value='Donate!'/>   
-
-										 
-							</form>
-						</div>
-				  </div>--><!--FIRST CALL TO ACTION-->	
-				</div>
 				<div class="colorBar">
 				  <div id='second-CTA'>
 					<div class='container'>	
@@ -358,13 +79,10 @@
 										url: 'ajax/email_capture',
 										data: email_form_info,
 										success: function(r){
-					                    	//alert(r);
 												if(r == "True"){
 													$("#emailSubmitHide").hide();
 													$("#onEmailSubmit").show();
 												}else if(r == 'invalid'){
-													//$("#emailSubmitHide").hide();
-													//$("#onEmailSubmit").show();
 												}else if (r == "False"){
 													
 												}

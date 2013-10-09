@@ -13,10 +13,9 @@ from django.contrib.contenttypes import generic
 from django.db import IntegrityError
 from urlparse import urlparse
 from datetime import datetime
-import simplejson
+import json as simplejson
 import string
-from news_aef.models import NewsArticleModel, NewsPageViewCount
-from articles_aef.models import ArticleCategoryModel, ArticlePageModel
+from articles.models import ArticleCategoryModel, ArticlePageModel
 from models import LandingPageModel, LandingPageMeta, EmailCaptureModel, LandingImageContentModel, LandingContent
 from forms import EmailCaptureForm
 
@@ -29,10 +28,9 @@ def landing(request):
 	#for f in featured:
 	#	f.list = ArticlePageModel.objects.filter(id=f.id).order_by('-created_datetime')[2]
 	articles = ArticlePageModel.objects.all().order_by("-created_datetime")[:5]
-	news = NewsArticleModel.objects.all().order_by("-created_datetime")[:5]
 	ecForm = EmailCaptureForm()
 	#context = {'title': title, 'meta': meta, 'ss': ss_con, 'featured': featured, 'seo': ssc}
-	context = {'title':title, 'meta': meta, 'ecForm': ecForm, 'articles':articles, 'news':news}
+	context = {'title':title, 'meta': meta, 'ecForm': ecForm, 'articles':articles}
 	return render(request, 'index.html', context) #, context)
 	
 def email_capture(request):

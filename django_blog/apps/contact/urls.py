@@ -1,10 +1,10 @@
 from django.conf.urls import patterns, include, url
-from contact_aef.views import *
+from contact.views import *
 # Uncomment the next two lines to enable the admin:
 # from django.contrib import admin
 # admin.autodiscover()
 
-urlpatterns = patterns('contact_aef.views',
+urlpatterns = patterns('contact.views',
 	#url(r'^$', landing),
 	url(r'^contact/$', contact),
 	#url(r'^articles/(?P<article_slug>[a-z-0-9]+)/$', article),

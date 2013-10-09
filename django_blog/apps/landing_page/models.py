@@ -5,18 +5,18 @@ from django.db import models
 
 
 class LandingPageModel(models.Model):
-	titleTag = models.CharField(max_length=255, null=True, blank=True, default=None)
+	title_tag = models.CharField(max_length=255, null=True, blank=True, default=None)
 	
 	def __unicode__(self):
-		return u'%s' % (self.titleTag)	
+		return u'%s' % (self.title_tag)	
 
 class LandingPageMeta(models.Model):
-	metaDescription = models.CharField(max_length=255, null=True, blank=True, default=None)
-	metaKeywords = models.CharField(max_length=500, null=True, blank=True, default=None)
-	metaAuthor = models.CharField(max_length=255, null=True, blank=True, default=None)
+	meta_description = models.CharField(max_length=255, null=True, blank=True, default=None)
+	meta_keywords = models.CharField(max_length=500, null=True, blank=True, default=None)
+	meta_author = models.CharField(max_length=255, null=True, blank=True, default=None)
 	
 	def __unicode__(self):
-		return u'%s | %s' % (self.metaDescription, self.metaKeywords)
+		return u'%s | %s' % (self.meta_description, self.meta_keywords)
 
 class EmailCaptureModel(models.Model):
 	email = models.EmailField(max_length=255)

@@ -13,11 +13,11 @@ from django.contrib.contenttypes import generic
 from django.db import IntegrityError
 from urlparse import urlparse
 from datetime import datetime
-import simplejson
+import json as simplejson
 import string
 
 from models import ArticlePageModel, ArticleCategoryModel, ArticlePageViewCount
-from landing_page_aef.forms import EmailCaptureForm
+from landing_page.forms import EmailCaptureForm
 
 
 def about_page(request):

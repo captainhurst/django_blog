@@ -1,6 +1,6 @@
 from django.conf.urls import patterns, include, url
 from django.contrib.sitemaps import FlatPageSitemap, GenericSitemap
-from sitemap import ArticleSitemap, NewsSitemap, CategorySitemap, ProjectsSitemap
+from sitemap import ArticleSitemap, CategorySitemap
 
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
@@ -16,9 +16,9 @@ urlpatterns = patterns('',
 
     # Uncomment the next line to enable the admin:
 	url(r'^admin/', include(admin.site.urls)),
-    url(r'', include('landing_page_aef.urls')),
-	url(r'', include('contact_aef.urls')),
-	url(r'', include('articles_aef.urls')),
+    url(r'', include('landing_page.urls')),
+	url(r'', include('contact.urls')),
+	url(r'', include('articles.urls')),
 	
 )
 
@@ -26,8 +26,6 @@ urlpatterns = patterns('',
 sitemaps = {
     'article': ArticleSitemap,
 	'category': CategorySitemap,
-	'news': NewsSitemap,
-	'projects': ProjectsSitemap,
 }
 
 urlpatterns += patterns('',
