@@ -1,0 +1,168 @@
+{% extends "base.html" %}
+
+		{% block head %}
+			<meta charset="utf-8">
+		    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		    <meta name="description" content="The African Equity Fund is a non profit organization focused on promoting education, technology and entrepreneurship. Contact AEF and get involved!">
+		    <meta name="author" content="">
+			<meta name="keywords" content="Contact the African Equity Fund, Submit a project idea, volunteer in Africa">
+
+		    <title>Contact Us | The African Equity Fund</title>
+
+			<!--Facebook Meta Tags-->
+			<meta property=”og:title” content=”Contact Us | The African Equity Fund”/>
+			<meta property=”og:type” content=”listing”/>
+			<meta property=”og:image” content=””/>
+			<meta property=”og:url” content=”{{request.path}}”/>
+			<meta property=”og:description” content=”The African Equity Fund is a non profit organization focused on promoting education, technology and entrepreneurship. Contact AEF and get involved!”/>
+			<meta property=”og:street_address” content=””/>
+			<meta property=”og:locality” content=”Ghana, Zimbabwe, Sierra Leone, Togo, Liberia”/>
+			<meta property=”og:email” content=””/>
+			<meta property=”og:phone_number” content=””/>
+			<meta property=”og:website” content=”{{request.path}}”/>
+
+			<!--Twitter Meta Tags-->
+			<meta name=”twitter:card” content=”summary”>
+			<meta name=”twitter:url” content=”{{request.path}}”>
+			<meta name=”twitter:title” content=”Contact Us | The African Equity Fund”>
+			<meta name=”twitter:description” content=”The African Equity Fund is a non profit organization focused on promoting education, technology and entrepreneurship. Contact AEF and get involved!”>
+			<meta name=”twitter:image” content=””>
+		{% endblock%}
+
+		{% block sub_header %}
+			<div class='content_spacer'></div>
+
+		    <div class="container">
+			<div class='row'>
+				<div class='col-lg-7 col-md-7 col-sm-7 contactForm'>
+					{% if sent == False %}
+					<h1 class='big-contact-us-header'>Contact Us</h1>
+					<p class='lead'>We always appreciate hearing from you.</p>
+					<form role="form" action="/contact/" method="post">
+						{% csrf_token %}
+					  <div class="form-group">
+					    <label for="email-address">Email address</label>
+						{{contact.sender}}
+					  </div>
+					  <div class="form-group">
+					    <label for="subject">Subject</label>
+						{{contact.subject}}
+					  </div>
+					  <div class="form-group">
+					    <label for="message">Message</label>
+					  	{{ contact.message }}
+					  </div>
+
+					  <button type="submit" class="btn btn-custom-twitter btn-lg">Submit</button>
+					</form>
+					{% endif %}
+					
+					{% if sent == True %}
+					
+					<h1 class='big-contact-us-header'>Thank you!</h1>
+					<p class='lead'>We'll get back to you as soon as possible.</p>
+					
+					{% endif %}
+					
+					
+				</div>
+				<div class="col-lg-5 col-md-5 col-sm-5">
+					<div class='socialWidget'>
+						<div id='emailSubmitHide' class=''>
+
+						<h3 class='GI-CTA'>Join Our Email List!</h3>
+						<form id='ajax-email-list' class="" role="form">{% csrf_token %}
+							<div class="form-group">
+							<label class="sr-only" for="exampleInputEmail2">Email address</label>
+							{{ecForm.email}}
+							</div>
+							<button class="btn btn-lg btn-info" id="submit-email-button">Submit Email</button>
+						</form>
+						<script type='text/javascript'>
+							$('#submit-email-button').click(function(e){
+								e.preventDefault();
+								var email_form_info = $('#ajax-email-list').serialize();
+								//alert(email_form_info)
+								$.ajax({
+									type:'POST',
+									url: '/ajax/email_capture',
+									data: email_form_info,
+									success: function(r){
+				                    	//alert(r);
+											if(r == "True"){
+												$("#emailSubmitHide").hide();
+												$("#onEmailSubmit").show();
+											}else if(r == 'invalid'){
+												//$("#emailSubmitHide").hide();
+												//$("#onEmailSubmit").show();
+											}else if (r == "False"){
+
+											}
+										},
+								});
+							});
+						</script>
+					</div>
+					<div id='onEmailSubmit' class='' style="display: none;">
+						<h3 class='GI-CTA'>You. Are. Awesome.</h3>
+						<p class='lead'>We will keep you updated about volunteer, fundraising and other opportunities. Oh yeah, and if there is news, we'll tell you about it.</p>
+				</div>
+				<div class='featured-content-margin-fix'>
+						<h3 class='GI-CTA'>Follow and Like Us!</h3>
+						<div>
+							<a href='https://www.facebook.com/AfricanEquityFund' target='_BLANK' class='btn btn-lg btn-custom-facebook'><i class='icon-facebook'></i> Like Us!</a>
+						</div>
+						<div>
+							<a href='https://twitter.com/african_equity' target='_BLANK' class='btn btn-lg btn-custom-twitter'><i class='icon-twitter'></i> Follow Us!</a>
+						</div>	
+				</div>
+					</div>
+
+		        </div><!-- /.col-lg-5 -->
+		      </div><!-- /.row -->
+			</div>
+		      <!-- Three columns of text below the carousel -->
+		      
+		       
+
+		      
+
+
+		      <!-- START THE FEATURETTES -->
+		
+
+		      <!--<hr class="featurette-divider">
+
+		      <div class="featurette">
+		        <img class="featurette-image img-circle pull-left" data-src="holder.js/512x512">
+		        <h2 class="featurette-heading">Oh yeah, it's that good. <span class="text-muted">See for yourself.</span></h2>
+		        <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+		      </div>-->
+
+			
+
+		
+		{% endblock %}
+		
+		
+		{% block modals %}
+		<!-- Modal -->
+		  <div class="modal fade" id="myModal">
+		    <div class="modal-dialog">
+		      <div class="modal-content">
+		        <div class="modal-header">
+		          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+		          <h4 class="modal-title">Modal title</h4>
+		        </div>
+		        <div class="modal-body">
+		          ...
+		        </div>
+		        <div class="modal-footer">
+		          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		          <button type="button" class="btn btn-primary">Save changes</button>
+		        </div>
+		      </div><!-- /.modal-content -->
+		    </div><!-- /.modal-dialog -->
+		  </div><!-- /.modal -->
+		
+		{% endblock %}

@@ -1,0 +1,210 @@
+{% extends "base.html" %}
+		{% block head %}
+			<meta charset="utf-8">
+		    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		    <meta name="description" content="The African Equity Fund is a non-profit dedicated to economic development through technology, education and entrepreneurship. Tanner Ainge, Ryan Hurst, Stephen Young and Ryan Michael are the founding team. Learn more about our organization here.">
+		    <meta name="author" content="Ryan Hurst">
+			<meta name="keywords" content="About AEF, African Equity Fund About, What is the African Equity Fund, Tanner Ainge, Ryan Hurst, Ryan Michael, Stephen Young.">
+
+		    <title>The African Equity Fund | Who We Are, What We Do</title>
+
+			<!--Facebook Meta Tags-->
+			<meta property=”og:title” content=”The African Equity Fund | Who We Are, What We Do”/>
+			<meta property=”og:type” content=”listing”/>
+			<meta property=”og:image” content=””/>
+			<meta property=”og:url” content=”{{request.path}}”/>
+			<meta property=”og:description” content=”The African Equity Fund is a non-profit dedicated to economic development through technology, education and entrepreneurship. Tanner Ainge, Ryan Hurst, Stephen Young and Ryan Michael are the founding team. Learn more about our organization here.”/>
+			<meta property=”og:street_address” content=”{{content.address}}”/>
+			<meta property=”og:locality” content=”Mesa, Arizona”/>
+			<meta property=”og:email” content=””/>
+			<meta property=”og:phone_number” content=”{{content.phone_number}}”/>
+			<meta property=”og:website” content=”{{content.website}}”/>
+
+			<!--Twitter Meta Tags-->
+			<meta name=”twitter:card” content=”summary”>
+			<meta name=”twitter:url” content=”{{request.path}}”>
+			<meta name=”twitter:title” content=”The African Equity Fund | Who We Are, What We Do”>
+			<meta name=”twitter:description” content=”The African Equity Fund is a non-profit dedicated to economic development through technology, education and entrepreneurship. Tanner Ainge, Ryan Hurst, Stephen Young and Ryan Michael are the founding team. Learn more about our organization here.”>
+			<meta name=”twitter:image” content=””>
+		{% endblock%}
+		
+		{% block extra_css %}
+			<link rel="stylesheet" href="{{ STATIC_URL }}css/font-awesome.min.css">
+			<!--[if IE 7]>
+			  <link rel="stylesheet" href="{{ STATIC_URL }}css/font-awesome-ie7.min.css">
+			<![endif]-->
+		{% endblock%}
+		
+		{% block sub_header %}
+		
+			<div class='content_spacer'></div>
+		    <div id='about-us'class="container articleContainer">
+
+		      <!-- Three columns of text below the carousel -->
+		      <div class="row">
+		        <div class="col-lg-7 col-md-7 col-sm-7">   
+			      	<h1>A little about us...</h1>
+					<hr/>
+					<div id='tl_dr' class='readable_content'>
+						<p>The African Equity Fund is a 501(c)3 non-profit organization dedicated to improving lives and communities throughout Africa. In a region where most live on less than $2 per day, we provide education, training, and funding for entrepreneurs and small businesses. As the entrepreneurs we support succeed in launching a profitable business, their standard of living rises with their self-confidence and they become new leaders, job-creators, and mentors in their communities. Please join with us in our effort to help.</p>
+						
+					</div>
+
+
+					<div id='the_people' class='readable_content'>
+						<h2>The People</h2>
+						<div class='person_div'>
+							<div class='bio_pic'>
+								<img  src='{{STATIC_URL}}resources/bio/tanner_ainge.jpg' class="img-rounded smaller_pic"/>
+							</div>
+							<p class='bio_text'><b><a href="http://www.linkedin.com/in/tainge" target="_BLANK">Tanner Ainge</a></b> has worked closely with entrepreneurs in Ghana since the founding of AEF in 2008.  He earned his Juris Doctor from Northwestern University School of Law and his Bachelor of Arts in International Studies from Brigham Young University. Tanner has been involved with a variety of coporate transactions as an attorney, a private equity investor, and while handling acquisitions for a publicly-traded healthcare company.</p>
+						</div>
+
+
+						<div class='person_div'>
+							<div class='bio_pic'>
+								<img  src='{{STATIC_URL}}resources/bio/ryan_hurst.png' class="img-rounded smaller_pic"/>
+							</div>
+							<p class='bio_text'><b><a href="http://www.linkedin.com/pub/ryan-hurst/49/328/625" target="_BLANK">Ryan Hurst</a></b> is a graduate of American University. He studied International Economic Relations and Global Environmental Policy. Ryan has been traveling to and working in Sub-Saharan Africa since the age of 18 and has worked across the continent on various humanitarian and economic development projects. A long time student of international development and entrepreneurship, Ryan is proud to put his skills in technology, entrepreneurship and sustainability to use in the furtherance of AEF's goals.</p>
+							<p class='bio_text'>Follow Ryan Hurst <a href='//twitter.com/captainhurst' target='_BLANK'>@captainhurst</a></p>
+						</div>
+
+						<div class='person_div'>
+							<div class='bio_pic'>
+								<img  src='{{STATIC_URL}}resources/bio/stephen_young.jpg' class="img-rounded smaller_pic"/>
+							</div>
+							<p class='bio_text'><b><a href="http://www.linkedin.com/pub/stephen-k-young/19/9ba/6b4" target="_BLANK">Stephen Young</a></b> currently resides with his family in Charlotte, North Carolina where he works in strategic development at a Fortune 100 corporation. Prior to his current role he worked for a middle market private equity firm in Salt Lake City, Utah. Stephen lived in Ghana, Sierra Leone and Liberia from 2005-2007 and he has been involved with AEF since 2010. He received a bachelor’s degree in economics from Utah State University’s Huntsman School of Business and an MBA from Duke University’s Fuqua School of Business.</p>
+						</div>
+
+						<div class='person_div'>
+							<div class='bio_pic'>
+								<img  src='{{STATIC_URL}}resources/bio/ryan_michael.jpg' class="img-rounded smaller_pic"/>
+							</div>
+							<p class='bio_text'><b><a href='http://www.linkedin.com/in/ryanmichaelprofile' target="_BLANK">Ryan Michael</a></b> is a business development leader in Google’s growing Accra, Ghana office and has worked with AEF since 2010. He has a passion for empowering others and has trained aspiring entrepreneurs in Ghana, Sierra Leone, and Liberia. Ryan earned a bachelor's degree from Cornell University.</p>
+							<p class='bio_text'>Follow Ryan Michael <a href='//twitter.com/rwmichael34' target='_BLANK'>@rwmichael34</a></p>
+						</div>
+
+
+					</div>
+
+					<div id='our_history' class='readable_content'>
+						<h2>Our History</h2>
+						
+						<p>Since 2004, we have been involved with small humanitarian projects in Africa. At first, we carefully selected young men and women for college scholarships. In special cases, we provided housing for abused women and children and covered medical expenses. We later began to focus on sustainable micro-enterprises such as a village clothing store for a Nigerian widow and a rural bakery in Nsawam, Ghana.</p>
+						<p>During these early years, all of our funding came through the personal donations of our founding directors and were directed toward individuals and communities with personal ties to AEF.</p>
+						<p>In 2008, we realized that we had some unique advantages in identifying, funding, and managing impactful projects. Our directors, project managers, and consultants have valuable experience in the language, culture, and business practices of Sub-Saharan Africa which they offer to AEF projects and entrepreneurs on a volunteer basis. We also experienced initial success with the repayment of start-up equity grants and business loans and felt that such funds could be continuously recycled for the benefit of others. </p>
+						<p>For all of these reasons, we became an official 501(c)3 non-profit corporation so that we could solicit tax-deductible donations from the general public. Since that time, our number of projects continues to grow.  We also branched out into the area of primary education when we acquired a school in the town of Nkawkaw, which was renamed Empower Academy. </p>
+						<p>We are always hoping to find new donors and supporters so that we can offer more support to the African entrepreneurs, schools, and communities that desperately need our help. Please get involved and join our cause.</p>
+					</div>
+					<div id='our_principles' class='readable_content'>
+						<h2>Principles</h2>
+
+						<ul>
+							<li>Self-reliance is the economic ideal for individuals, families, and communities.</li>
+						<li>In developing self-reliance, ability to understand and manage resources is equally important as access to resources.</li>
+						<li>Successful ventures provide opportunities for individuals to learn, grow, work, and contribute - thereby increasing overall satisfaction.</li>
+						<li>Successful ventures create models for more innovation and investment, leading to further growth and development.</li>
+						<li>Failed ventures provide painful but memorable learning experiences.</li>
+						<li>Providing service to others leads to lasting relationships and a more meaningful life.</li>
+						</ul>
+					</div>
+				
+		        </div><!-- /.col-lg-7 -->
+		        <div class="col-lg-5 col-md-5 col-sm-5">
+					<div class='socialWidget'>
+						<div id='emailSubmitHide' class=''>
+						
+						<h3 class='GI-CTA'>Join Our Email List!</h3>
+						<form id='ajax-email-list' class="" role="form">{% csrf_token %}
+							<div class="form-group">
+							<label class="sr-only" for="exampleInputEmail2">Email address</label>
+							{{ecForm.email}}
+							</div>
+							<button class="btn btn-lg btn-info" id="submit-email-button">Submit Email</button>
+						</form>
+						<script type='text/javascript'>
+							$('#submit-email-button').click(function(e){
+								e.preventDefault();
+								var email_form_info = $('#ajax-email-list').serialize();
+								//alert(email_form_info)
+								$.ajax({
+									type:'POST',
+									url: '/ajax/email_capture',
+									data: email_form_info,
+									success: function(r){
+				                    	//alert(r);
+											if(r == "True"){
+												$("#emailSubmitHide").hide();
+												$("#onEmailSubmit").show();
+											}else if(r == 'invalid'){
+												//$("#emailSubmitHide").hide();
+												//$("#onEmailSubmit").show();
+											}else if (r == "False"){
+												
+											}
+										},
+								});
+							});
+						</script>
+					</div>
+					<div id='onEmailSubmit' class='' style="display: none;">
+						<h3 class='GI-CTA'>You. Are. Awesome.</h3>
+						<p class='lead'>We will keep you updated about volunteer, fundraising and other opportunities. Oh yeah, and if there is news, we'll tell you about it.</p>
+				</div>
+				<div class='featured-content-margin-fix'>
+						<h3 class='GI-CTA'>Follow and Like Us!</h3>
+						<div>
+							<a href='https://www.facebook.com/AfricanEquityFund' target='_BLANK' class='btn btn-lg btn-custom-facebook'><i class='icon-facebook'></i> Like Us!</a>
+						</div>
+						<div>
+							<a href='https://twitter.com/african_equity' target='_BLANK' class='btn btn-lg btn-custom-twitter'><i class='icon-twitter'></i> Follow Us!</a>
+						</div>	
+				</div>
+					</div>
+		          
+		        </div><!-- /.col-lg-5 -->
+		      </div><!-- /.row -->	
+			</div>
+		
+		{% endblock%}
+		
+		{% block modals %}
+		<!-- Modal -->
+		  <div class="modal" id="review">
+		    <div class="modal-dialog">
+		      <div class="modal-content">
+		        <div class="modal-header">
+		          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+		          <h3 class="modal-title">Review {{ content.name }}</h4>
+		        </div>
+		        <div class="modal-body">
+		          <p>All reviews are verified. You must submit a valid email address so we can contact you to get a proof of visit.</p>
+				  <div class=''>
+
+					<div class="form-group">
+					    <label for="review_email">Email address</label>
+					  	<input type='email' class='form-control' name='review_email' placeholder='Email Address'>
+					</div>
+					<div class="form-group">
+					    <label for="review_content">Write a review:</label>
+						<textarea class='form-control' name='review_content' placeholder='Write about your experience.'></textarea>
+					</div>
+				  </div>
+		        </div>
+		        <div class="modal-footer">
+		          <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Close</button>
+		          <button type="button" class="btn btn-sm btn-success">Submit</button>
+		        </div>
+		      </div><!-- /.modal-content -->
+		    </div><!-- /.modal-dialog -->
+		  </div><!-- /.modal -->
+		{% endblock%}
+		
+		{% block extra_js %}
+
+		<script type='text/javascript'>
+			$(document).ready(function(){
+
+			});
+		  </script>
+		{% endblock %}

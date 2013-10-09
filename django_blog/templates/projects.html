@@ -1,0 +1,197 @@
+{% extends "base.html" %}
+		{% block head %}
+			<meta charset="utf-8">
+		    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		    <meta name="description" content="{{meta.metaDescription}}">
+		    <meta name="author" content="">
+			<meta name="keywords" content="{{meta.metaKeywords}}">
+
+		    <title>The African Equity Fund | Projects | {{page.titleTag}}</title>
+
+			<!--Facebook Meta Tags-->
+			<meta property=”og:title” content=”The African Equity Fund | Projects | {{page.titleTag}}”/>
+			<meta property=”og:type” content=”listing”/>
+			<meta property=”og:image” content=””/>
+			<meta property=”og:url” content=”{{request.path}}”/>
+			<meta property=”og:description” content=”{{page.metaDescription}}”/>
+			<meta property=”og:street_address” content=””/>
+			<meta property=”og:locality” content=””/>
+			<meta property=”og:email” content=””/>
+			<meta property=”og:phone_number” content=””/>
+			<meta property=”og:website” content=”{{request.path}}”/>
+
+			<!--Twitter Meta Tags-->
+			<meta name=”twitter:card” content=”summary”>
+			<meta name=”twitter:url” content=”{{request.path}}”>
+			<meta name=”twitter:title” content=”The African Equity Fund | Projects | {{page.titleTag}}”>
+			<meta name=”twitter:description” content=”{{page.metaDescription}}”>
+			<meta name=”twitter:image” content=””>
+		{% endblock%}
+		
+		{% block extra_css %}
+			<link rel="stylesheet" href="{{ STATIC_URL }}css/font-awesome.min.css">
+			<!--[if IE 7]>
+			  <link rel="stylesheet" href="{{ STATIC_URL }}css/font-awesome-ie7.min.css">
+			<![endif]-->
+		{% endblock%}
+		
+		{% block sub_header %}
+		
+			<div class='content_spacer'></div>
+		    <div class="container articleContainer">
+		      <!-- Three columns of text below the carousel -->
+		      <div class="row">
+		        <div class="col-lg-7 col-md-7 col-sm-7">   
+					<div id="project-carousel" class="carousel slide">
+					  <!-- Indicators -->
+					  <ol class="carousel-indicators">
+						{% for i in images %}
+							{% if forloop.counter0 == 0%}
+							<li data-target="#project-carousel" data-slide-to="{{forloop.counter0}}" class="active"></li>
+							{% else %}
+							<li data-target="#project-carousel" data-slide-to="{{forloop.counter0}}"></li>
+							{% endif %}
+						{% endfor %}
+
+					  </ol>
+
+					  <!-- Wrapper for slides -->
+					  <div class="carousel-inner">
+						{% for i in images %}
+							{% if forloop.counter0 == 0%}
+						<div class="item active">
+							{% else %}
+						<div class="item">
+							{% endif %}
+							<img src='{{STATIC_URL}}images/{{i.project_images}}'/>
+							<div class="carousel-caption">
+						    </div>
+						 </div>
+						{% endfor %}
+					  </div>
+
+					  <!-- Controls -->
+					  <a class="left carousel-control" href="#project-carousel" data-slide="prev">
+					    <span class="icon-prev"></span>
+					  </a>
+					  <a class="right carousel-control" href="#project-carousel" data-slide="next">
+					    <span class="icon-next"></span>
+					  </a>
+					</div>
+					<script type='text/javascript'>
+						$('#project-carousel').carousel()
+					</script>
+				  <h2 class='articleTitle'>{{page.project_name}}</h2>
+				  <div class='article_text'>
+				  	{% autoescape off %}
+					{{page.project_text}}
+					{% endautoescape%}
+				  </div>
+				
+		        </div><!-- /.col-lg-7 -->
+		        <div class="col-lg-5 col-md-5 col-sm-5">
+					<div class='socialWidget'>
+						<div id='emailSubmitHide' class=''>
+						
+						<h3 class='GI-CTA'>Join Our Email List!</h3>
+						<form id='ajax-email-list' class="" role="form">{% csrf_token %}
+							<div class="form-group">
+							<label class="sr-only" for="exampleInputEmail2">Email address</label>
+							{{ecForm.email}}
+							</div>
+							<button class="btn btn-lg btn-info" id="submit-email-button">Submit Email</button>
+						</form>
+						<script type='text/javascript'>
+							$('#submit-email-button').click(function(e){
+								e.preventDefault();
+								var email_form_info = $('#ajax-email-list').serialize();
+								//alert(email_form_info)
+								$.ajax({
+									type:'POST',
+									url: '/ajax/email_capture',
+									data: email_form_info,
+									success: function(r){
+				                    	//alert(r);
+											if(r == "True"){
+												$("#emailSubmitHide").hide();
+												$("#onEmailSubmit").show();
+											}else if(r == 'invalid'){
+												//$("#emailSubmitHide").hide();
+												//$("#onEmailSubmit").show();
+											}else if (r == "False"){
+												
+											}
+										},
+								});
+							});
+						</script>
+					</div>
+					<div id='onEmailSubmit' class='' style="display: none;">
+						<h3 class='GI-CTA'>You. Are. Awesome.</h3>
+						<p class='lead'>We will keep you updated about volunteer, fundraising and other opportunities. Oh yeah, and if there is news, we'll tell you about it.</p>
+				</div>
+				<div class='featured-content-margin-fix'>
+						<h3 class='GI-CTA'>Follow and Like Us!</h3>
+						<div>
+							<a href='https://www.facebook.com/AfricanEquityFund' target='_BLANK' class='btn btn-lg btn-custom-facebook'><i class='icon-facebook'></i> Like Us!</a>
+						</div>
+						<div>
+							<a href='https://twitter.com/african_equity' target='_BLANK' class='btn btn-lg btn-custom-twitter'><i class='icon-twitter'></i> Follow Us!</a>
+						</div>	
+				</div>
+					</div>
+			
+					{% for f in featured %}					          
+								<div class='featured-container'>
+									<h3 class='feature-name'>{{f.page.name}}</h3>
+									<p class='number-holder'><a target='_BLANK' href='tel:{{x.page.phone_number}}'>{{f.page.phone_number}}</a></p>
+									<p class='feature-extra-info'>{{f.extra_info}}</p>
+								</div>
+					{% endfor %}
+		          
+		        </div><!-- /.col-lg-5 -->
+		      </div><!-- /.row -->	
+			</div>
+		
+		{% endblock%}
+		
+		{% block modals %}
+		<!-- Modal -->
+		  <div class="modal" id="review">
+		    <div class="modal-dialog">
+		      <div class="modal-content">
+		        <div class="modal-header">
+		          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+		          <h3 class="modal-title">Review {{ content.name }}</h4>
+		        </div>
+		        <div class="modal-body">
+		          <p>All reviews are verified. You must submit a valid email address so we can contact you to get a proof of visit.</p>
+				  <div class=''>
+
+					<div class="form-group">
+					    <label for="review_email">Email address</label>
+					  	<input type='email' class='form-control' name='review_email' placeholder='Email Address'>
+					</div>
+					<div class="form-group">
+					    <label for="review_content">Write a review:</label>
+						<textarea class='form-control' name='review_content' placeholder='Write about your experience.'></textarea>
+					</div>
+				  </div>
+		        </div>
+		        <div class="modal-footer">
+		          <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Close</button>
+		          <button type="button" class="btn btn-sm btn-success">Submit</button>
+		        </div>
+		      </div><!-- /.modal-content -->
+		    </div><!-- /.modal-dialog -->
+		  </div><!-- /.modal -->
+		{% endblock%}
+		
+		{% block extra_js %}
+
+		<script type='text/javascript'>
+			$(document).ready(function(){
+
+			});
+		  </script>
+		{% endblock %}

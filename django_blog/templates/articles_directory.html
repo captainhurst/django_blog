@@ -1,0 +1,194 @@
+{% extends "base.html" %}
+		{% block head %}
+			<meta charset="utf-8">
+		    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		    <meta name="description" content="The African Equity Fund is a 501(c)3 organization dedicated to promoting education, technology and entrepreneurship in Sub-Saharan Africa. Read articles about our experiences and projects here.">
+		    <meta name="author" content="">
+			<meta name="keywords" content="African Technology, Non Profit Technology, Education in Africa, Non Profit Education, Entrepreneurship in Africa, African Entrepreneurship, Non Profit Support Of Entrepreneurship">
+
+		    <title>The African Equity Fund | Articles on Technology, Education and Entrepreneurship</title>
+
+			<!--Facebook Meta Tags-->
+			<meta property=”og:title” content=”The African Equity Fund | Articles on Technology, Education and Entrepreneurship”/>
+			<meta property=”og:type” content=”listing”/>
+			<meta property=”og:image” content=””/>
+			<meta property=”og:url” content=”{{request.path}}”/>
+			<meta property=”og:description” content=”The African Equity Fund is a 501(c)3 organization dedicated to promoting education, technology and entrepreneurship in Sub-Saharan Africa. Read articles about our experiences and projects here.”/>
+			<meta property=”og:street_address” content=””/>
+			<meta property=”og:locality” content=””/>
+			<meta property=”og:email” content=””/>
+			<meta property=”og:phone_number” content=””/>
+			<meta property=”og:website” content=””/>
+
+			<!--Twitter Meta Tags-->
+			<meta name=”twitter:card” content=”summary”>
+			<meta name=”twitter:url” content=”{{request.path}}”>
+			<meta name=”twitter:title” content=”The African Equity Fund | Articles on Technology, Education and Entrepreneurship”>
+			<meta name=”twitter:description” content=”The African Equity Fund is a 501(c)3 organization dedicated to promoting education, technology and entrepreneurship in Sub-Saharan Africa. Read articles about our experiences and projects here.”>
+			<meta name=”twitter:image” content=””>
+		{% endblock%}
+		
+		{% block extra_css %}
+			<link rel="stylesheet" href="{{ STATIC_URL }}css/font-awesome.min.css">
+			<!--[if IE 7]>
+			  <link rel="stylesheet" href="{{ STATIC_URL }}css/font-awesome-ie7.min.css">
+			<![endif]-->
+		{% endblock%}
+		
+		{% block sub_header %}
+		
+			<div class='content_spacer'></div>
+		    <div class="container">
+
+		      <!-- Three columns of text below the carousel -->
+			<div class='row'>
+				<div class="col-lg-7 col-md-7 col-sm-7"> 
+				</div>
+		    </div>
+		      <div class="row">
+		        <div class="col-lg-7 col-md-7 col-sm-7"> 
+					{% if categoryHeader %}
+					<h1 class='sectionHeader'>{{ categoryHeader.category_name }}</h1>
+					{% else %}
+					<h1 class='sectionHeader'>Articles</h1>
+					{% endif %}
+					{% for f in featured %}
+						<h2 class='categoryHeader'><a href='/blog/{{f.category_slug}}'>{{ f.category_name }}</a></h3>
+						<div class='blogCategoryPreviewWrapper'>
+							{% for p in f.page %}
+							<h3 class='subCategoryHeader'><a href='/blog/{{f.category_slug}}/{{p.descriptive_url}}'>{{p.article_title}}</a></h3>
+							<p class='articleTease'>{{p.article_text|striptags|truncatewords:50}} <a href="/blog/{{f.category_slug}}/{{p.descriptive_url}}">[Read More]</a></p>
+							<hr/>
+							{% endfor %}
+						</div>
+					{% endfor %}
+			         
+				  	{% for p in page %}					          
+					<h3><a href='../blog/{{p.descriptive_url}}'>{{p.article_title}}</a></h3>
+		 		  	<p class=''>{{p.article_subheader}}</p>
+					<hr/>
+				  	{% endfor %}					          
+				
+					
+		        </div><!-- /.col-lg-7 -->
+		        <div class="col-lg-5 col-md-5 col-sm-5">
+					<div class='socialWidget'>
+						<div id='emailSubmitHide' class=''>
+						
+						<h3 class='GI-CTA'>Join Our Email List!</h3>
+						<form id='ajax-email-list' class="" role="form">{% csrf_token %}
+							<div class="form-group">
+							<label class="sr-only" for="exampleInputEmail2">Email address</label>
+							{{ecForm.email}}
+							</div>
+							<button class="btn btn-lg btn-info" id="submit-email-button">Submit Email</button>
+						</form>
+						<script type='text/javascript'>
+							$('#submit-email-button').click(function(e){
+								e.preventDefault();
+								var email_form_info = $('#ajax-email-list').serialize();
+								//alert(email_form_info)
+								$.ajax({
+									type:'POST',
+									url: '/ajax/email_capture',
+									data: email_form_info,
+									success: function(r){
+				                    	//alert(r);
+											if(r == "True"){
+												$("#emailSubmitHide").hide();
+												$("#onEmailSubmit").show();
+											}else if(r == 'invalid'){
+												//$("#emailSubmitHide").hide();
+												//$("#onEmailSubmit").show();
+											}else if (r == "False"){
+												
+											}
+										},
+								});
+							});
+						</script>
+					</div>
+					<div id='onEmailSubmit' class='' style="display: none;">
+						<h3 class='GI-CTA'>You. Are. Awesome.</h3>
+						<p class='lead'>We will keep you updated about volunteer, fundraising and other opportunities. Oh yeah, and if there is news, we'll tell you about it.</p>
+				</div>
+				<div class='featured-content-margin-fix'>
+						<h3 class='GI-CTA'>Follow and Like Us!</h3>
+						<div>
+							<a href='https://www.facebook.com/AfricanEquityFund' target='_BLANK' class='btn btn-lg btn-custom-facebook'><i class='icon-facebook'></i> Like Us!</a>
+						</div>
+						<div>
+							<a href='https://twitter.com/african_equity' target='_BLANK' class='btn btn-lg btn-custom-twitter'><i class='icon-twitter'></i> Follow Us!</a>
+						</div>	
+				</div>
+					</div>
+		
+		          
+		        </div>
+		      </div><!-- /.row -->	
+			
+		</div>
+		{% endblock%}
+		
+		{% block modals %}
+		<!-- Modal -->
+		  <div class="modal" id="review">
+		    <div class="modal-dialog">
+		      <div class="modal-content">
+		        <div class="modal-header">
+		          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+		          <h3 class="modal-title">Review {{ content.name }}</h4>
+		        </div>
+		        <div class="modal-body">
+		          <p>All reviews are verified. You must submit a valid email address so we can contact you to get a proof of visit.</p>
+				  <div class=''>
+
+					<div class="form-group">
+					    <label for="review_email">Email address</label>
+					  	<input type='email' class='form-control' name='review_email' placeholder='Email Address'>
+					</div>
+					<div class="form-group">
+					    <label for="review_content">Write a review:</label>
+						<textarea class='form-control' name='review_content' placeholder='Write about your experience.'></textarea>
+					</div>
+				  </div>
+		        </div>
+		        <div class="modal-footer">
+		          <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Close</button>
+		          <button type="button" class="btn btn-sm btn-success">Submit</button>
+		        </div>
+		      </div><!-- /.modal-content -->
+		    </div><!-- /.modal-dialog -->
+		  </div><!-- /.modal -->
+		{% endblock%}
+		
+		{% block extra_js %}
+		<script src="http://maps.google.com/maps/api/js?sensor=true"></script>
+	    <script type="text/javascript" src="{{ STATIC_URL }}js/jquery.gmap.min.js"></script>
+
+		<script type='text/javascript'>
+			$(document).ready(function(){
+				var place = $("#hidress").val();
+				var stuff = {address:place}
+				$("#office_address").gmap3({
+				  map:{
+				    address:place,
+				    options:{
+				      zoom: 14
+				    }
+				  },
+				  marker:{
+				    address: place   // address resolution got from cache from previous call
+				  }
+				});
+
+				$('.tooltip-toolbar').tooltip({
+				      selector: "[data-toggle=tooltip]",
+				      container: "body"
+				    });
+				$("#review_modal").click(function(){
+					$('#review').modal();
+				});
+			});
+		  </script>
+		{% endblock %}
