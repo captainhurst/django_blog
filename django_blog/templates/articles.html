@@ -2,29 +2,29 @@
 		{% block head %}
 			<meta charset="utf-8">
 		    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-		    <meta name="description" content="{{meta.metaDescription}}">
+		    <meta name="description" content="{{page.meta_description}}">
 		    <meta name="author" content="">
-			<meta name="keywords" content="{{meta.metaKeywords}}">
+			<meta name="keywords" content="{{page.metaKeywords}}">
 
-		    <title>{{page.titleTag}}</title>
+		    <title>{{page.title_tag}}</title>
 
 			<!--Facebook Meta Tags-->
-			<meta property=”og:title” content=”{{page.titleTag}}”/>
+			<meta property=”og:title” content=”{{page.title_tag}}”/>
 			<meta property=”og:type” content=”listing”/>
 			<meta property=”og:image” content=””/>
 			<meta property=”og:url” content=”{{request.path}}”/>
-			<meta property=”og:description” content=”{{meta.metaDescription}}”/>
+			<meta property=”og:description” content=”{{page.meta_description}}”/>
 			<meta property=”og:street_address” content=”{{content.address}}”/>
-			<meta property=”og:locality” content=”Mesa, Arizona”/>
+			<meta property=”og:locality” content=””/>
 			<meta property=”og:email” content=””/>
-			<meta property=”og:phone_number” content=”{{content.phone_number}}”/>
-			<meta property=”og:website” content=”{{content.website}}”/>
+			<meta property=”og:phone_number” content=””/>
+			<meta property=”og:website” content=””/>
 
 			<!--Twitter Meta Tags-->
 			<meta name=”twitter:card” content=”summary”>
 			<meta name=”twitter:url” content=”{{request.path}}”>
 			<meta name=”twitter:title” content=”{{page.titleTag}}”>
-			<meta name=”twitter:description” content=”{{meta.metaDescription}}”>
+			<meta name=”twitter:description” content=”{{page.meta_description}}”>
 			<meta name=”twitter:image” content=””>
 		{% endblock%}
 		
@@ -49,7 +49,7 @@
 			       {% endif%}
 				  <h2 class='articleTitle'>{{page.article_title}}</h2>
 		 		  <p class='lead'>{{page.article_subheader}}</p>
-				<p class='small'><em>By: {{page.metaAuthor}}</em></p>
+				<p class='small'><em>By: <a href='/articles/author/{{page.author.first_name | lower }}-{{page.author.last_name | lower }}'>{{page.author.first_name}} {{page.author.last_name}}</a></em></p>
 				  <div class='article_text'>
 				  	{% autoescape off %}
 					{{page.article_text}}
